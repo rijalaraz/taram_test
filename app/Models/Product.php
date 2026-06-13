@@ -30,21 +30,33 @@ class Product extends Model
     /** @use HasFactory<\Database\Factories\ProductFactory> */
     use HasFactory;
 
+    /**
+     * @return BelongsTo<Category, Product>
+     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
+    /**
+     * @return HasOne<Stock, Product>
+     */
     public function stock(): HasOne
     {
         return $this->hasOne(Stock::class);
     }
 
+    /**
+     * @return HasMany<OrderItem, Product>
+     */
     public function orderItems(): HasMany
     {
         return $this->hasMany(OrderItem::class);
     }
 
+    /**
+     * @return BelongsToMany<Order, Product, OrderItem>
+     */
     public function orders(): BelongsToMany
     {
         return $this->belongsToMany(
@@ -59,6 +71,9 @@ class Product extends Model
         );
     }
 
+    /**
+     * @return HasMany<StockMovement, Product>
+     */
     public function stockMovements(): HasMany
     {
         return $this->hasMany(StockMovement::class);

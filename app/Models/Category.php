@@ -21,6 +21,9 @@ class Category extends Model
     /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
 
+    /**
+     * @return HasMany<Product, Category>
+     */
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);

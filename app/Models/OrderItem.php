@@ -24,11 +24,17 @@ class OrderItem extends Model
     /** @use HasFactory<\Database\Factories\OrderItemFactory> */
     use HasFactory;
 
+    /**
+     * @return BelongsTo<Order, OrderItem>
+     */
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
     }
 
+    /**
+     * @return BelongsTo<Product, OrderItem>
+     */
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);

@@ -22,6 +22,9 @@ class Stock extends Model
     /** @use HasFactory<\Database\Factories\StockFactory> */
     use HasFactory;
 
+    /**
+     * @return BelongsTo<Product, Stock>
+     */
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);

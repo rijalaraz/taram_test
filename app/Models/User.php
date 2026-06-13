@@ -49,6 +49,9 @@ class User extends Authenticatable implements PasskeyUser
         ];
     }
 
+    /**
+     * @return HasMany<Order, User>
+     */
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
