@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Filament\Resources\Stocks\Schemas;
+namespace App\Filament\Resources\StockMovements\Schemas;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-class StockForm
+class StockMovementForm
 {
     public static function configure(Schema $schema): Schema
     {
@@ -14,13 +15,14 @@ class StockForm
                 TextInput::make('product_id')
                     ->required()
                     ->numeric(),
+                Select::make('movement_type')
+                    ->options(['in' => 'In', 'out' => 'Out'])
+                    ->required(),
                 TextInput::make('quantity')
                     ->required()
                     ->numeric(),
-                TextInput::make('reserved_quantity')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
+                TextInput::make('reference'),
+                TextInput::make('description'),
             ]);
     }
 }

@@ -13,9 +13,9 @@ class OrderForm
     {
         return $schema
             ->components([
-                TextInput::make('user.name')
-                    ->readonly()
-                    ->label('User'),
+                TextInput::make('user_id')
+                    ->required()
+                    ->numeric(),
                 TextInput::make('order_number')
                     ->required(),
                 DateTimePicker::make('order_date')
