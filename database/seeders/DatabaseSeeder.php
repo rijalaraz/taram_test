@@ -25,16 +25,16 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Rija Lalaina',
-        //     'email' => 'rijalaraz@gmail.com',
-        //     'email_verified_at' => now(),
-        //     'password' => Hash::make('password'),
-        //     'remember_token' => Str::random(10),
-        //     'two_factor_secret' => null,
-        //     'two_factor_recovery_codes' => null,
-        //     'two_factor_confirmed_at' => null,
-        // ]);
+        User::factory()->create([
+            'name' => 'Administrator',
+            'email' => 'admin@admin.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'remember_token' => Str::random(10),
+            'two_factor_secret' => null,
+            'two_factor_recovery_codes' => null,
+            'two_factor_confirmed_at' => null,
+        ]);
 
         Category::factory()
             ->count(5)
