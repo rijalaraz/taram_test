@@ -22,7 +22,7 @@ class Category extends Model
     use HasFactory;
 
     /**
-     * @return HasMany<Product, Category>
+     * @return HasMany<Product, $this>
      */
     public function products(): HasMany
     {

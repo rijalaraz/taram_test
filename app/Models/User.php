@@ -50,7 +50,7 @@ class User extends Authenticatable implements PasskeyUser
     }
 
     /**
-     * @return HasMany<Order, User>
+     * @return HasMany<Order, $this>
      */
     public function orders(): HasMany
     {

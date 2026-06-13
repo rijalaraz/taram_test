@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 /**
  * @property int $id
@@ -27,7 +28,7 @@ class Order extends Model
     use HasFactory;
 
     /**
-     * @return BelongsTo<User, Order>
+     * @return BelongsTo<User, $this>
      */
     public function user(): BelongsTo
     {
@@ -35,7 +36,7 @@ class Order extends Model
     }
 
     /**
-     * @return HasMany<OrderItem, Order>
+     * @return HasMany<OrderItem, $this>
      */
     public function orderItems(): HasMany
     {
@@ -43,7 +44,7 @@ class Order extends Model
     }
 
     /**
-     * @return BelongsToMany<Product, Order, OrderItem>
+     * @return BelongsToMany<Product, $this, Pivot, 'pivot'>
      */
     public function products(): BelongsToMany
     {

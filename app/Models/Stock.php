@@ -23,7 +23,7 @@ class Stock extends Model
     use HasFactory;
 
     /**
-     * @return BelongsTo<Product, Stock>
+     * @return BelongsTo<Product, $this>
      */
     public function product(): BelongsTo
     {

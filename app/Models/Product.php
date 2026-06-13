@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 
 /**
@@ -31,7 +32,7 @@ class Product extends Model
     use HasFactory;
 
     /**
-     * @return BelongsTo<Category, Product>
+     * @return BelongsTo<Category, $this>
      */
     public function category(): BelongsTo
     {
@@ -39,7 +40,7 @@ class Product extends Model
     }
 
     /**
-     * @return HasOne<Stock, Product>
+     * @return HasOne<Stock, $this>
      */
     public function stock(): HasOne
     {
@@ -47,7 +48,7 @@ class Product extends Model
     }
 
     /**
-     * @return HasMany<OrderItem, Product>
+     * @return HasMany<OrderItem, $this>
      */
     public function orderItems(): HasMany
     {
@@ -55,7 +56,7 @@ class Product extends Model
     }
 
     /**
-     * @return BelongsToMany<Order, Product, OrderItem>
+     * @return BelongsToMany<Order, $this, Pivot, 'pivot'>
      */
     public function orders(): BelongsToMany
     {
@@ -72,7 +73,7 @@ class Product extends Model
     }
 
     /**
-     * @return HasMany<StockMovement, Product>
+     * @return HasMany<StockMovement, $this>
      */
     public function stockMovements(): HasMany
     {

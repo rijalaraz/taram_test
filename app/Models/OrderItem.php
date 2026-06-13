@@ -25,7 +25,7 @@ class OrderItem extends Model
     use HasFactory;
 
     /**
-     * @return BelongsTo<Order, OrderItem>
+     * @return BelongsTo<Order, $this>
      */
     public function order(): BelongsTo
     {
@@ -33,7 +33,7 @@ class OrderItem extends Model
     }
 
     /**
-     * @return BelongsTo<Product, OrderItem>
+     * @return BelongsTo<Product, $this>
      */
     public function product(): BelongsTo
     {

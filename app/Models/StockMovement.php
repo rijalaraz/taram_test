@@ -25,7 +25,7 @@ class StockMovement extends Model
     use HasFactory;
 
     /**
-     * @return BelongsTo<Product, StockMovement>
+     * @return BelongsTo<Product, $this>
      */
     public function product(): BelongsTo
     {
