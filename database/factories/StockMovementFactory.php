@@ -18,7 +18,7 @@ class StockMovementFactory extends Factory
     public function definition(): array
     {
         return [
-            'stock_id' => \App\Models\Stock::factory(),
+            'product_id' => \App\Models\Product::factory(),
             'movement_type' => $this->faker->randomElement(['in', 'out']),
             'quantity' => $this->faker->numberBetween(1, 100),
             'reference' => $this->faker->optional()->word(),
