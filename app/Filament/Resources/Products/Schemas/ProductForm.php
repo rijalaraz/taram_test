@@ -7,6 +7,8 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\Select;
+use Str;
 
 class ProductForm
 {
@@ -24,14 +26,21 @@ class ProductForm
                 TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('$'),
+                    ->prefix('Ar'),
                 FileUpload::make('image_url')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('products')
+                    ->getUploadedFileNameForStorageUsing(
+                        fn($file): string => Str::uuid().'_'.Str::slug(basename($file->getClientOriginalName()), '.')
+                    ),
                 Toggle::make('is_active')
                     ->required(),
-                TextInput::make('category_id')
-                    ->required()
-                    ->numeric(),
+               Select::make('category_id')
+                    ->relationship(name: 'category', titleAttribute: 'name')
+                    ->searchable()
+                    ->preload()
+                    ->noOptionsMessage('No categories available.')
             ]);
     }
 }

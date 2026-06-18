@@ -22,9 +22,10 @@ class ProductsTable
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('price')
-                    ->money()
+                    ->money('MGA')
                     ->sortable(),
-                ImageColumn::make('image_url'),
+                ImageColumn::make('image_url')
+                    ->disk('public'),
                 IconColumn::make('is_active')
                     ->boolean(),
                 TextColumn::make('category.name')
