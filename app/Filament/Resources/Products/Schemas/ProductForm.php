@@ -29,6 +29,7 @@ class ProductForm
                     ->prefix('Ar'),
                 FileUpload::make('image_url')
                     ->image()
+                    ->maxSize(2048) // 2 Mo
                     ->disk('public')
                     ->directory('products')
                     ->getUploadedFileNameForStorageUsing(
