@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\OrderItems\Schemas;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -11,12 +12,14 @@ class OrderItemForm
     {
         return $schema
             ->components([
-                TextInput::make('order_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('product_id')
-                    ->required()
-                    ->numeric(),
+                Select::make('order_id')
+                    ->relationship('order', 'order_number')
+                    ->preload()
+                    ->disabled(),
+                Select::make('product_id')
+                    ->relationship('product', 'name')
+                    ->preload()
+                    ->disabled(),
                 TextInput::make('quantity')
                     ->required()
                     ->numeric(),
@@ -25,7 +28,7 @@ class OrderItemForm
                     ->numeric()
                     ->prefix('$'),
                 TextInput::make('total_price')
-                    ->required()
+                    ->readOnly()
                     ->numeric()
                     ->prefix('$'),
             ]);

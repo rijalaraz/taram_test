@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Orders\Schemas;
 
+use App\Models\User;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -18,19 +19,19 @@ class OrderForm
                     ->preload()
                     ->disabled(),
                 TextInput::make('order_number')
-                    ->required(),
+                    ->disabled(),
                 DateTimePicker::make('order_date')
-                    ->readOnly(),
+                    ->disabled(),
                 TextInput::make('total_amount')
                     ->required()
                     ->numeric(),
                 Select::make('status')
                     ->options([
-            'pending' => 'Pending',
-            'processing' => 'Processing',
-            'completed' => 'Completed',
-            'cancelled' => 'Cancelled',
-        ])
+                        'pending' => 'Pending',
+                        'processing' => 'Processing',
+                        'completed' => 'Completed',
+                        'cancelled' => 'Cancelled',
+                    ])
                     ->default('pending')
                     ->required(),
             ]);

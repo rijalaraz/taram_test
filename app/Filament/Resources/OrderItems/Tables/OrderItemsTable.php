@@ -18,8 +18,7 @@ class OrderItemsTable
                     ->label('Order')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('product_id')
-                    ->numeric()
+                TextColumn::make('product.name')
                     ->sortable(),
                 TextColumn::make('quantity')
                     ->numeric()
