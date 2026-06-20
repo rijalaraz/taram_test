@@ -13,13 +13,14 @@ class OrderForm
     {
         return $schema
             ->components([
-                TextInput::make('user_id')
-                    ->required()
-                    ->numeric(),
+                Select::make('user_id')
+                    ->relationship('user', 'name')
+                    ->preload()
+                    ->disabled(),
                 TextInput::make('order_number')
                     ->required(),
                 DateTimePicker::make('order_date')
-                    ->required(),
+                    ->readOnly(),
                 TextInput::make('total_amount')
                     ->required()
                     ->numeric(),
