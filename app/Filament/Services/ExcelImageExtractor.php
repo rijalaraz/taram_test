@@ -5,6 +5,7 @@ namespace App\Filament\Services;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Worksheet\BaseDrawing;
 use PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing;
 
 class ExcelImageExtractor
@@ -43,7 +44,7 @@ class ExcelImageExtractor
         }
     }
 
-    protected function storeImage($drawing): string
+    protected function storeImage(BaseDrawing $drawing): string
     {
         $filename = 'products/' . uniqid();
 
