@@ -9,7 +9,7 @@ use PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing;
 
 class ExcelImageExtractor
 {
-    public function extract(string $file)
+    public function extract(string $file): void
     {
         $spreadsheet = IOFactory::load($file);
 
