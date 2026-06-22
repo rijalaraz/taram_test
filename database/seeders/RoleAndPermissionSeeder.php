@@ -13,6 +13,9 @@ class RoleAndPermissionSeeder extends Seeder
 {
     protected static array $roles = [RoleName::SUPER_ADMIN];
 
+    /**
+     * @var array<int, string>
+     */
     protected static array $permissions = [
         PermissionName::UPDATE_ADMIN_USERS,
         PermissionName::UPDATE_PERMISSIONS,
