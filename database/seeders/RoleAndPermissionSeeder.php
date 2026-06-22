@@ -12,7 +12,7 @@ use Spatie\Permission\Models\Role;
 class RoleAndPermissionSeeder extends Seeder
 {
     /**
-     * @var array<int, RoleName>
+     * @var array<int, string>
      */
     protected static array $roles = [RoleName::SUPER_ADMIN];
 
