@@ -31,7 +31,7 @@ class ProductFactory extends Factory
             'description' => $this->faker->paragraph(),
             'price' => $this->faker->randomFloat(2, 1, 100),
             'image_url' => '',
-            'is_active' => $this->faker->boolean(80), // 80% chance of being active
+            'is_active' => $this->faker->boolean(70), // 70% chance of being active
             'category_id' => \App\Models\Category::factory(), // Assuming you have a Category factory
         ];
     }
